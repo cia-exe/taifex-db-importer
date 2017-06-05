@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="STOCK_TW" EntityNamespace="DbImporter.Future.Database" ContextNamespace="DbImporter.Future.Database" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=STOCK_TW;Integrated Security=True;User Instance=False" SettingsObjectName="DbImporter.Properties.Settings" SettingsPropertyName="STOCK_TWConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Contract_ID" Member="RowContract_IDs">
+    <Type Name="RowContract_ID">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FutureTradeInf" Member="RowTradeInfs">
+    <Type Name="RowTradeInf">
+      <Column Name="trade_date" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="contract_ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pay_month" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="price_open" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_hi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_low" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_close" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="volume" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price_settle" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="unclosed_volume" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="last_buy_price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="last_sale_price" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FutureCorpX3" Member="RowCorpX3s">
+    <Type Name="RowCorpX3">
+      <Column Name="trade_date" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="contract_ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="c1_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_unclosed_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_unclosed_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_unclosed_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c1_unclosed_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_unclosed_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_unclosed_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_unclosed_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c2_unclosed_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_unclosed_long_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_unclosed_long_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_unclosed_short_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="c3_unclosed_short_moneyK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FutureBigTraderUnclosedVol" Member="RowBigTraderUnclosedVols">
+    <Type Name="RowBigTraderUnclosedVol">
+      <Column Name="trade_date" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="contract_ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="top5_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top5_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top10_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top10_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top5corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top5corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top10corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="top10corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top5_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top5_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top10_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top10_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top5corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top5corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top10corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_top10corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="market_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="near_market_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_market_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top5_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top5_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top10_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top10_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top5corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top5corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top10corp_buy_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="week_top10corp_sell_vol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

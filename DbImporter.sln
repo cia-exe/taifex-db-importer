@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbImporter", "DbImporter\DbImporter.csproj", "{2E1A2DB0-0157-4384-96DB-672724F26569}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralUtil", "GeneralUtil\GeneralUtil.csproj", "{93999F4B-0831-4EC1-8E4C-337A41715EAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		GPU release|Any CPU = GPU release|Any CPU
+		GPU release|x64 = GPU release|x64
+		GPU release|x86 = GPU release|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|x64.Build.0 = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Debug|x86.Build.0 = Debug|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|Any CPU.Build.0 = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|x64.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|x64.Build.0 = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|x86.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.GPU release|x86.Build.0 = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|x64.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|x64.Build.0 = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E1A2DB0-0157-4384-96DB-672724F26569}.Release|x86.Build.0 = Release|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|x64.ActiveCfg = Debug|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|x64.Build.0 = Debug|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|x86.ActiveCfg = Debug|x86
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Debug|x86.Build.0 = Debug|x86
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|Any CPU.ActiveCfg = GPU release|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|Any CPU.Build.0 = GPU release|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|x64.ActiveCfg = GPU release|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|x64.Build.0 = GPU release|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|x86.ActiveCfg = GPU release|x86
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.GPU release|x86.Build.0 = GPU release|x86
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|x64.ActiveCfg = Release|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|x64.Build.0 = Release|x64
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|x86.ActiveCfg = Release|x86
+		{93999F4B-0831-4EC1-8E4C-337A41715EAD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectName0 = \u0022$/Stock\u0020DSS/SOF/DbImporter\u0022,\u0020THAAAAAA
+		SccLocalPath0 = ..
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection0 = taifex-db-importer\\
+		SccProjectUniqueName1 = DbImporter\\DbImporter.csproj
+		SccProjectName1 = \u0022$/Stock\u0020DSS/SOF/DbImporter/DbImporter\u0022,\u0020UHAAAAAA
+		SccLocalPath1 = DbImporter
+		SccProjectUniqueName2 = GeneralUtil\\GeneralUtil.csproj
+		SccProjectName2 = \u0022$/Stock\u0020DSS/SOF/DbImporter/GeneralUtil/GeneralUtil\u0022,\u0020RIAAAAAA
+		SccLocalPath2 = GeneralUtil
+	EndGlobalSection
+EndGlobal
