@@ -60,17 +60,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 3
-		SccProjectName0 = \u0022$/Stock\u0020DSS/SOF/DbImporter\u0022,\u0020THAAAAAA
-		SccLocalPath0 = ..
-		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
-		SccProjectFilePathRelativizedFromConnection0 = taifex-db-importer\\
-		SccProjectUniqueName1 = DbImporter\\DbImporter.csproj
-		SccProjectName1 = \u0022$/Stock\u0020DSS/SOF/DbImporter/DbImporter\u0022,\u0020UHAAAAAA
-		SccLocalPath1 = DbImporter
-		SccProjectUniqueName2 = GeneralUtil\\GeneralUtil.csproj
-		SccProjectName2 = \u0022$/Stock\u0020DSS/SOF/DbImporter/GeneralUtil/GeneralUtil\u0022,\u0020RIAAAAAA
-		SccLocalPath2 = GeneralUtil
-	EndGlobalSection
 EndGlobal
