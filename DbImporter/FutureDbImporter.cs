@@ -281,7 +281,7 @@ namespace DbImporter
                     bRun = true;
                     int parsedLine = Helper.ParseCSVFile(csv, enumCSVFieldsType, strEndOfFile, (string[] s) =>
                         {
-                            if (++parseCount % 100 == 0)  TxtLog.showLog("parsing line:"+parseCount);
+                            if (++parseCount % 333 == 0)  TxtLog.showLog("parsing line:"+parseCount);
 
                             object r;
 
@@ -408,7 +408,7 @@ namespace DbImporter
 
                     string strPayMonth = arrS[(int)CSVField.交割月份];
 
-                    { // "價差商品"
+                    { // ignore "價差商品"
                         if (strPayMonth.Length == 13) //e.g. 201501/201502
                         {
                             if (strPayMonth[6] == '/')
@@ -433,6 +433,20 @@ namespace DbImporter
 
                     dest.contract_ID = id;// parseID(arrS, CSVField.契約);
                     dest.trade_date = DateTime.Parse(arrS[(int)CSVField.日期]);
+
+                    {   //period
+                        var period = arrS[(int)CSVField.交易時段];
+                        if(period.Equals(@"盤後"))
+                        {
+                            dest.period = 1;
+                        }
+                        else
+                        {
+                            dest.period = 0;
+                            if (!period.Equals(@"一般"))
+                                TxtLog.showLog("unknows period: " + arrS[0] + " / " + arrS[1] + " / " + arrS[2] + " => " + period);
+                        }
+                    }
 
                     //dest.pay_month = DateTime.ParseExact(arrS[(int)CSVField.交割月份], "yyyyMM", null);                    
                     int idx_w = strPayMonth.ToLower().IndexOf('w');
@@ -482,7 +496,7 @@ namespace DbImporter
                 override protected object FindDbRowByKey(object row)
                 {
                     RowTradeInf r = row as RowTradeInf;
-                    return database.RowTradeInfs.SingleOrDefault(g => g.contract_ID == r.contract_ID && g.trade_date == r.trade_date && g.pay_month==r.pay_month);
+                    return database.RowTradeInfs.SingleOrDefault(g => g.contract_ID == r.contract_ID && g.trade_date == r.trade_date && g.pay_month==r.pay_month && g.period==r.period);
                 }
 
                 override protected object FindRowByKey(object row, IQueryable<object> q)

@@ -46,7 +46,11 @@ namespace DbImporter.Future
         {
             if (thread != null && thread.IsAlive) return;
 
-            string dir = GeneralUtil.Helper.getRootDirPath("SOF") + @"data.raw/";
+            //string dir = GeneralUtil.Helper.getRootDirPath("SOF") + @"data.raw/";
+            string dir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            //file:\C:\CIA.data\Workspace\MachineLearning\taifex-db-importer\DbImporter\bin\Debug\
+            dir = dir.Substring(dir.IndexOf(":\\") + 2) +"\\";
+            TxtLog.showLog("*************************************dir: " + dir);
             bool bShowWarning=false;
             thread = new Thread(() =>
             {

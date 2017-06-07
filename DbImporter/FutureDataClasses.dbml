@@ -20,6 +20,7 @@
       <Column Name="unclosed_volume" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="last_buy_price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="last_sale_price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="period" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.FutureCorpX3" Member="RowCorpX3s">
