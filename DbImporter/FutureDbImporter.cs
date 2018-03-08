@@ -252,6 +252,7 @@ namespace DbImporter
                 protected string strEndOfFile;
                 protected Type enumCSVFieldsType;
                 protected ITable DbTable;
+                protected bool bCheckFieldCount = true;
                 //protected IList<object> buffer;
 
                 //{ return Queryable.SingleOrDefault<RowBigTraderUnclosedVol>(q as IQueryable<RowBigTraderUnclosedVol>, getWhereKey(r)); }
@@ -279,7 +280,7 @@ namespace DbImporter
                     int parseCount = 0;
 
                     bRun = true;
-                    int parsedLine = Helper.ParseCSVFile(csv, enumCSVFieldsType, strEndOfFile, (string[] s) =>
+                    int parsedLine = Helper.ParseCSVFile(csv, enumCSVFieldsType, strEndOfFile, bCheckFieldCount,(string[] s) =>
                         {
                             if (++parseCount % 333 == 0)  TxtLog.showLog("parsing line:"+parseCount);
 
@@ -379,7 +380,7 @@ namespace DbImporter
             {
 
                 enum CSVField // must match all fields and order in csv file.
-                { 日期 = 0, 契約, 交割月份, 開盤價, 最高價, 最低價, 收盤價, 漲跌價, 漲跌P, 成交量, 結算價, 未沖銷契約數, 最後最佳買價, 最後最佳賣價, 歷史最高價, 歷史最低價, 是否因訊息面暫停交易, 交易時段 };
+                { 日期 = 0, 契約, 交割月份, 開盤價, 最高價, 最低價, 收盤價, 漲跌價, 漲跌P, 成交量, 結算價, 未沖銷契約數, 最後最佳買價, 最後最佳賣價, 歷史最高價, 歷史最低價, 是否因訊息面暫停交易, 交易時段 , 價差對單式委託成交量 };
                 //日期 = 0, 契約, 交割月份, 開盤價, 最高價, 最低價, 收盤價, 漲跌價, 漲跌P, 成交量, 結算價, 未沖銷契約數, 最後最佳買價, 最後最佳賣價, 歷史最高價, 歷史最低價 /*,暫停交易*/
                 //交易日期 ,契約,交割月份,開盤價,最高價,最低價,收盤價,漲跌價,漲跌%,*成交量,結算價,*未沖銷契約數,最後最佳買價,最後最佳賣價,歷史最高價,歷史最低價
 
@@ -393,7 +394,8 @@ namespace DbImporter
                     this.enumCSVFieldsType = typeof(CSVField);
 
                     this.DbTable = database.RowTradeInfs;
-                    this.strEndOfFile = @"價差商品";
+                    this.strEndOfFile = null;// @"價差商品";
+                    this.bCheckFieldCount = false;
                 }
 
                 //override protected object getParsedRow(string[] arrS)

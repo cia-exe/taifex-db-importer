@@ -45,9 +45,24 @@ namespace GeneralUtil
             log("report", msg);
         }
 
+        static string prevMsg = null;
+        static int queueMsgCount = 0;
         public static void showLog(string msg)
         {
-            log("info", msg, false);
+            if (prevMsg == msg)
+            {
+                queueMsgCount++;
+            }
+            else
+            {
+                if (queueMsgCount > 0)
+                {
+                    log("info", "ignore same message x " + queueMsgCount, false);
+                    queueMsgCount = 0;
+                }
+                prevMsg = msg;
+                log("info", msg, false);
+            }
         }
 
         private static void log(string logType, string msg)
@@ -561,7 +576,7 @@ namespace GeneralUtil
 
         //public delegate bool OnParse1CSVLine(string[] sVals);
         //public static int ParseCSVFile(StreamReader excludeHeaderCSV, Type enumTypeFields, string strEndOfFile, OnParse1CSVLine onParse1CSVLine)
-        public static int ParseCSVFile(StreamReader excludeHeaderCSV, Type enumTypeFields, string strEndOfFile, Func<string[], bool> onParse1CSVLine)
+        public static int ParseCSVFile(StreamReader excludeHeaderCSV, Type enumTypeFields, string strEndOfFile, bool bCheckFieldCount, Func<string[], bool> onParse1CSVLine)
         {
             int totalParsedLine = 0;
             string s;
@@ -580,7 +595,7 @@ namespace GeneralUtil
                 }
 
                 MatchCollection m = m_rgxCSVFields.Matches(s);
-                if (m.Count != eVals.Length)
+                if (bCheckFieldCount && m.Count != eVals.Length)
                 {
                     if (strEndOfFile != null && s.IndexOf(strEndOfFile) >= 0) break;
                     TxtLog.showLog("csv read not match (" + line + ") : " + s);
@@ -590,7 +605,10 @@ namespace GeneralUtil
                 string[] sArrRet = new string[eVals.Length];
 
                 foreach (int idx in eVals)
-                    sArrRet[idx] = m[idx].Groups[m_fieldGroupIndex].Value.Trim();
+                    if (idx < m.Count)
+                        sArrRet[idx] = m[idx].Groups[m_fieldGroupIndex].Value.Trim();
+                    else
+                        TxtLog.showLog("ignore: " + eVals.GetValue(idx));
 
                 if (!onParse1CSVLine(sArrRet))
                 {
@@ -605,14 +623,14 @@ namespace GeneralUtil
 
         }
 
-        public static int ParseCSVFile(string fileName, Encoding encoding, Type enumTypeFields, string strEndOfFile, Func<string[], bool> onParse1CSVLine)
+        public static int ParseCSVFile(string fileName, Encoding encoding, Type enumTypeFields, string strEndOfFile, bool bCheckFieldCount, Func<string[], bool> onParse1CSVLine)
         {
             int totalParsedLine = 0;
             using (StreamReader csv = new StreamReader(fileName, encoding))
             {
                 string s;
                 while ((s = csv.ReadLine()) != null && s.Trim() == "") ; //skip fields header
-                totalParsedLine = ParseCSVFile(csv, enumTypeFields, strEndOfFile, onParse1CSVLine);
+                totalParsedLine = ParseCSVFile(csv, enumTypeFields, strEndOfFile, bCheckFieldCount, onParse1CSVLine);
             }// end useing
             return totalParsedLine;
         }
